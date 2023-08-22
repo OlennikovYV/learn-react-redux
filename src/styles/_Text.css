@@ -1,0 +1,12 @@
+.text {
+  width: 150px;
+  padding-right: 16px;
+}
+
+.text > span {
+  padding: 10px;
+  color: #555;
+  background-color: #fefefe;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+}

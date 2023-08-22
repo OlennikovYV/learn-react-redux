@@ -1,0 +1,10 @@
+.panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  margin-top: 8px;
+  padding: 0px 32px;
+  border-radius: 3px;
+  background-color: #eee;
+}

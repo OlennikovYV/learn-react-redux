@@ -1,0 +1,24 @@
+button {
+  width: 32px;
+  margin-right: 8px;
+  padding: 8px;
+  border-radius: 3px;
+  color: #555;
+  background-color: #fefefe;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 5px #ccc;
+  font-size: 16px;
+  font-family: "Roboto";
+}
+
+button:last-child {
+  margin-right: 0;
+}
+
+button:active {
+  background-color: #eee;
+}
+
+button:hover {
+  border: 1px solid #bbb;
+}
