@@ -1,5 +1,5 @@
 button {
-  width: 32px;
+  min-width: 32px;
   margin-right: 8px;
   padding: 8px;
   border-radius: 3px;

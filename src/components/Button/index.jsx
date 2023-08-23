@@ -1,9 +1,9 @@
-import React, { forwardRef } from "react";
+import React from "react";
 
-const Button = forwardRef(function Button(props, ref) {
-  const { text, onClick } = props;
+function Button(props) {
+  const { onClick, text } = props;
 
   return <button onClick={onClick}>{text}</button>;
-});
+}
 
 export default Button;
