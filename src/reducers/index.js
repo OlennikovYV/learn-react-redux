@@ -1,7 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-import counter1Reducer, { initialState1 } from "./value1";
-import counter2Reducer, { initialState2 } from "./value2";
+import counter1Reducer, { initialState1 } from "./counter1";
+import counter2Reducer, { initialState2 } from "./counter2";
 
 export const RESET_REDUX_STATE = "RESET_REDUX_STATE";
 
