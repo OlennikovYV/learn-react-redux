@@ -1,9 +1,13 @@
 import React from "react";
 
 function Button(props) {
-  const { onClick, text } = props;
+  const { disabled, onClick, text } = props;
 
-  return <button onClick={onClick}>{text}</button>;
+  return (
+    <button disabled={disabled} onClick={onClick}>
+      {text}
+    </button>
+  );
 }
 
 export default Button;

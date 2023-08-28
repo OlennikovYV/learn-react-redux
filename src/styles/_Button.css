@@ -22,3 +22,7 @@ button:active {
 button:hover {
   border: 1px solid #bbb;
 }
+
+button:disabled {
+  background-color: #eee;
+}
