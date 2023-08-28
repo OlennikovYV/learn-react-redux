@@ -1,6 +1,14 @@
 import { connect, useDispatch } from "react-redux";
-import { increment1, decrement1, reset1 } from "../reducers/counter1";
-import { increment2, decrement2, reset2 } from "../reducers/counter2";
+import {
+  incrementCounter1,
+  decrementCounter1,
+  resetCounter1,
+} from "../reducers/counter1";
+import {
+  incrementCounter2,
+  decrementCounter2,
+  resetCounter2,
+} from "../reducers/counter2";
 import { RESET_REDUX_STATE } from "../reducers";
 import { Button, Panel, Text } from "../components";
 
@@ -10,38 +18,38 @@ function Panels({ ...props }) {
   const {
     counter1,
     counter2,
-    increment1,
-    decrement1,
-    increment2,
-    decrement2,
-    reset1,
-    reset2,
+    incrementCounter1,
+    decrementCounter1,
+    incrementCounter2,
+    decrementCounter2,
+    resetCounter1,
+    resetCounter2,
   } = props;
 
   const captionCounter1 = Object.keys({ counter1 })[0];
   const captionCounter2 = Object.keys({ counter2 })[0];
 
-  const handleDecrement1 = () => {
-    if (counter1 > 0) decrement1();
+  const handleDecrementCounter1 = () => {
+    if (counter1 > 0) decrementCounter1();
   };
 
-  const handleDecrement2 = () => {
-    if (counter2 > 0) decrement2();
+  const handleDecrementCounter2 = () => {
+    if (counter2 > 0) decrementCounter2();
   };
 
   return (
     <>
       <Panel caption={captionCounter1}>
         <Text text={counter1} />
-        <Button onClick={() => increment1()} text='+' />
-        <Button onClick={handleDecrement1} text='-' />
-        <Button onClick={() => reset1()} text='Сброс' />
+        <Button onClick={() => incrementCounter1()} text='+' />
+        <Button onClick={handleDecrementCounter1} text='-' />
+        <Button onClick={() => resetCounter1()} text='Сброс' />
       </Panel>
       <Panel caption={captionCounter2}>
         <Text text={counter2} />
-        <Button onClick={() => increment2()} text='+' />
-        <Button onClick={handleDecrement2} text='-' />
-        <Button onClick={() => reset2()} text='Сброс' />
+        <Button onClick={() => incrementCounter2()} text='+' />
+        <Button onClick={handleDecrementCounter2} text='-' />
+        <Button onClick={() => resetCounter2()} text='Сброс' />
       </Panel>
       <Panel>
         <Button
@@ -58,12 +66,12 @@ const mapState = (state) => ({
   counter2: state.counter2.value,
 });
 const mapDispatch = {
-  increment1,
-  decrement1,
-  increment2,
-  decrement2,
-  reset1,
-  reset2,
+  incrementCounter1,
+  decrementCounter1,
+  incrementCounter2,
+  decrementCounter2,
+  resetCounter1,
+  resetCounter2,
 };
 
 export default connect(mapState, mapDispatch)(Panels);

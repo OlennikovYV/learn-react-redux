@@ -6,17 +6,18 @@ const counter1Slice = createSlice({
   name: "counter1",
   initialState: initialState1,
   reducers: {
-    increment1(state) {
+    incrementCounter1(state) {
       state.value++;
     },
-    decrement1(state) {
+    decrementCounter1(state) {
       state.value--;
     },
-    reset1() {
+    resetCounter1() {
       return initialState1;
     },
   },
 });
 
-export const { increment1, decrement1, reset1 } = counter1Slice.actions;
+export const { incrementCounter1, decrementCounter1, resetCounter1 } =
+  counter1Slice.actions;
 export default counter1Slice.reducer;
