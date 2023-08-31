@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface ButtonProps {
-  disabled: boolean;
+  disabled?: boolean;
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   text: string;
 }

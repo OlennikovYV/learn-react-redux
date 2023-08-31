@@ -1,4 +1,4 @@
-import { combineReducers } from "@reduxjs/toolkit";
+import { AnyAction, combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import counter1Reducer, { initialState1 } from "./counter1";
 import counter2Reducer, { initialState2 } from "./counter2";
@@ -15,7 +15,7 @@ const combineReducer = combineReducers({
   counter2: counter2Reducer,
 });
 
-const rootReducer = (state, action) => {
+const rootReducer = (state: any, action: AnyAction) => {
   if (action.type === RESET_REDUX_STATE) {
     return globalInitState;
   }
@@ -23,4 +23,8 @@ const rootReducer = (state, action) => {
   return combineReducer(state, action);
 };
 
-export default rootReducer;
+export const store = configureStore({
+  reducer: rootReducer,
+});
+
+export type AppDispatch = typeof store.dispatch;

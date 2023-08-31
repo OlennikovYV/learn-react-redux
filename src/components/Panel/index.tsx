@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface PanelProps {
-  caption: string;
+  caption?: string;
   children: React.ReactNode;
 }
 

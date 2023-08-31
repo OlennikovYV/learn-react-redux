@@ -1,21 +1,22 @@
 import { connect, useDispatch } from "react-redux";
+import { AppDispatch } from "../../store";
 import {
   incrementCounter1,
   decrementCounter1,
   resetCounter1,
-} from "../reducers/counter1";
+} from "../../store/counter1";
 import {
   incrementCounter2,
   decrementCounter2,
   resetCounter2,
-} from "../reducers/counter2";
-import { fakeFetchCounter1 } from "../reducers/counter1";
-import { fakeFetchCounter2 } from "../reducers/counter2";
-import { RESET_REDUX_STATE } from "../reducers";
-import { Button, Panel, Text } from "../components";
+} from "../../store/counter2";
+import { fakeFetchCounter1 } from "../../store/counter1";
+import { fakeFetchCounter2 } from "../../store/counter2";
+import { RESET_REDUX_STATE } from "../../store";
+import { Button, Panel, Text } from "../../components";
 
 function Panels({ ...props }) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const {
     counter1,
@@ -35,8 +36,8 @@ function Panels({ ...props }) {
 
   const handleDecrementCounter1 = () => counter1 > 0 && decrementCounter1();
   const handleDecrementCounter2 = () => counter2 > 0 && decrementCounter2();
-  const handleFakeFetchCounter1 = () => dispatch(fakeFetchCounter1(1));
-  const handleFakeFetchCounter2 = () => dispatch(fakeFetchCounter2(2));
+  const handleFakeFetchCounter1 = () => dispatch(fakeFetchCounter1(10));
+  const handleFakeFetchCounter2 = () => dispatch(fakeFetchCounter2(20));
 
   return (
     <>
@@ -52,7 +53,11 @@ function Panels({ ...props }) {
           onClick={handleDecrementCounter1}
           text='-'
         />
-        <Button onClick={handleFakeFetchCounter1} text='С сервера' />
+        <Button
+          disabled={isLoadingCounter1}
+          onClick={handleFakeFetchCounter1}
+          text='С сервера'
+        />
         <Button
           disabled={isLoadingCounter1}
           onClick={() => resetCounter1()}
@@ -71,7 +76,11 @@ function Panels({ ...props }) {
           onClick={handleDecrementCounter2}
           text='-'
         />
-        <Button onClick={handleFakeFetchCounter2} text='С сервера' />
+        <Button
+          disabled={isLoadingCounter2}
+          onClick={handleFakeFetchCounter2}
+          text='С сервера'
+        />
         <Button
           disabled={isLoadingCounter2}
           onClick={() => resetCounter2()}
@@ -80,6 +89,7 @@ function Panels({ ...props }) {
       </Panel>
       <Panel>
         <Button
+          disabled={isLoadingCounter1 || isLoadingCounter2}
           onClick={() => dispatch({ type: RESET_REDUX_STATE })}
           text='Сбросить всё'
         />
@@ -88,7 +98,7 @@ function Panels({ ...props }) {
   );
 }
 
-const mapState = (state) => ({
+const mapState = (state: any) => ({
   isLoadingCounter1: state.counter1.isLoadingCounter1,
   isLoadingCounter2: state.counter2.isLoadingCounter2,
   counter1: state.counter1.value,
